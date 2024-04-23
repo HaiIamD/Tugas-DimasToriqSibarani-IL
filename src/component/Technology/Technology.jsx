@@ -1,16 +1,9 @@
 import React from 'react';
 import './Technology.css';
-import { A11y, Autoplay } from 'swiper/modules';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/autoplay';
 
 function Technology({ data }) {
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center" id="tools">
+    <div className="d-flex flex-column justify-content-center align-items-center">
       <div className="col-11 col-xl-12 backgroundImageTool d-flex align-items-end mt-5 mb-2">
         <div className="toolTitle py-4 ps-3 col-12">Tools and Techonology</div>
       </div>
@@ -48,27 +41,14 @@ function Technology({ data }) {
         <div className="col-4 col-sm-3 techAndTools rounded-4 ms-1">{data[18].name}</div>
         <div className="col-3 col-sm-2 techAndTools rounded-4 ms-1">{data[19].name}</div>
       </div>
-      <Swiper
-        className="col-12 my-4 swiperLogo"
-        modules={[A11y, Autoplay]}
-        spaceBetween={10}
-        autoplay={{ delay: 1000 }}
-        breakpoints={{
-          0: {
-            slidesPerView: 3,
-          },
-          576: {
-            slidesPerView: 4,
-          },
-        }}
-      >
+      <div className="col-12 my-4 swiperLogo d-flex flex-wrap justify-content-center">
         {data.map((data, i) => (
-          <SwiperSlide className="text-center my-2" key={i}>
+          <div className=" col-5 col-lg-3 col-xl-2  text-center my-2 mx-2 d-flex flex-column" key={i}>
             <img src={data.image} alt="image" className="img-fluid rounded-4" />
             <span className="text-center namaLogo">{data.name}</span>
-          </SwiperSlide>
+          </div>
         ))}
-      </Swiper>
+      </div>
     </div>
   );
 }

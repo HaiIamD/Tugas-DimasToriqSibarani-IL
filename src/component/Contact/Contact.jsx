@@ -9,7 +9,7 @@ import Form from '../Form/Form';
 function Contact({ data, setLoading }) {
   return (
     <>
-      <div className="d-flex flex-wrap justify-content-center my-4" id="contact">
+      <div className="d-flex flex-wrap justify-content-center my-4">
         <div className="col-11 col-md-4 d-flex flex-column">
           <div className="borderGambarConnect">
             <img src="assets/2.png" alt="image" className="img-fluid col-12 gambarConnect" />

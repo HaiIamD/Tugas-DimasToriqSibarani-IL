@@ -6,18 +6,16 @@ import Project from './component/Project/Project';
 import Technology from './component/Technology/Technology';
 import Contact from './component/Contact/Contact';
 import Footer from './component/Footer/Footer';
-import useLocalStorage from 'use-local-storage';
 import data from './jsonData/data.json';
-import HashLoader from 'react-spinners/HashLoader';
 
 function App() {
-  const [isDark, setIsDark] = useLocalStorage(true);
-
+  const [isDark, setIsDark] = useState(false);
   const [loading, setLoading] = useState(false);
+
   return (
     <>
       <div className={`app ${loading ? '' : 'noDisplay'}`} data-theme={isDark ? 'dark' : 'light'}>
-        <Navbar isChecked={isDark} handleChange={() => setIsDark(!isDark)} data={data.navbar} />
+        <Navbar handleChange={() => setIsDark(!isDark)} data={data.navbar} theme={isDark ? 'dark' : 'light'} />
         <div className="container kotakMain">
           <Header data={data.header} />
           <Project data={data.project} />
@@ -29,7 +27,6 @@ function App() {
 
       {!loading && (
         <div className="app loading d-flex flex-column  " data-theme={isDark ? 'dark' : 'light'}>
-          <HashLoader className="my-2" />
           Loading
         </div>
       )}

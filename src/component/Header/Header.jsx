@@ -1,7 +1,5 @@
 import React from 'react';
 import './Header.css';
-import CountUp from 'react-countup';
-import { Link, animateScroll as scroll } from 'react-scroll';
 
 function Header({ data }) {
   return (
@@ -27,26 +25,19 @@ function Header({ data }) {
           <p className="textKecil">{data.description}</p>
           <div className="d-flex flex-wrap align-items-center">
             <div className="d-flex flex-column numberHeader  col-6 col-sm-4">
-              <span className="textBesarNumber">
-                <CountUp start={0} end={`${data.complateProject}`} duration={4} /> +
-              </span>
+              <span className="textBesarNumber">{data.complateProject} +</span>
               <span className="textKecil">Complete Project</span>
             </div>
             <div className="d-flex flex-column numberHeader col-6 col-sm-4 col-lg-5">
-              <span className="textBesarNumber">
-                <CountUp start={0} end={`${data.proficientInExpertise}`} duration={4} /> +
-              </span>
+              <span className="textBesarNumber">{data.proficientInExpertise} +</span>
               <span className="textKecil">Proficient in expertise</span>
             </div>
-            <Link
+            <a
+              href="https://www.linkedin.com/in/dimasts/"
               className="col-12 col-sm-4 col-xl-3 d-flex align-items-center justify-content-center  rounded-4 buttonHeader "
-              to="contact"
-              smooth={true}
-              duration={500}
-              offset={-20}
             >
               Let's Talk ....
-            </Link>
+            </a>
           </div>
         </div>
       </div>

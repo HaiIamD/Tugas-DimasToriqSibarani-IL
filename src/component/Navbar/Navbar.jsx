@@ -4,15 +4,10 @@ import { ImCross } from 'react-icons/im';
 import { AiOutlineVerticalAlignTop } from 'react-icons/ai';
 import { MdOutlineWbSunny } from 'react-icons/md';
 import { BsMoonStars } from 'react-icons/bs';
-import useLocalStorage from 'use-local-storage';
-import { Link, animateScroll as scroll } from 'react-scroll';
 import { SiDeutschebank } from 'react-icons/si';
 import { TfiFaceSmile } from 'react-icons/tfi';
-import 'react-tooltip/dist/react-tooltip.css';
-import { Tooltip } from 'react-tooltip';
 
-function Navbar({ handleChange, data }) {
-  const [darkMode, setDarkMode] = useLocalStorage(true);
+function Navbar({ handleChange, data, theme }) {
   const [navbar, setNavbar] = useState(false);
   const [sideBar, setSideBar] = useState(false);
   const [flowUp, setFlowUp] = useState(false);
@@ -37,15 +32,21 @@ function Navbar({ handleChange, data }) {
         <div className="col-11  d-flex flex-wrap align-items-center justify-content-between  ">
           <div className="navLogo">{data.title}</div>
           <div className="sideCommon">
-            <Link to="project" smooth={true} duration={100} offset={-100}>
-              <span className={`${navbar ? 'cursorLogo' : 'navItems'} px-2`}>Project</span>
-            </Link>
-            <Link to="tools" smooth={true} duration={100} offset={-100}>
-              <span className={`${navbar ? 'cursorLogo' : 'navItems'} px-2`}>Tools</span>
-            </Link>
-            <Link to="contact" smooth={true} duration={100} offset={-100}>
-              <span className={`${navbar ? 'cursorLogo' : 'navItems'} px-2`}>Contact</span>
-            </Link>
+            <span>
+              <a href="https://dimasts.vercel.app/" target="_blank" className={`${navbar ? 'cursorLogo' : 'navItems'} px-2`}>
+                Project
+              </a>
+            </span>
+            <span>
+              <a href="https://dimasts.vercel.app/" target="_blank" className={`${navbar ? 'cursorLogo' : 'navItems'} px-2`}>
+                Tools
+              </a>
+            </span>
+            <span>
+              <a href="https://dimasts.vercel.app/" target="_blank" className={`${navbar ? 'cursorLogo' : 'navItems'} px-2`}>
+                Contact
+              </a>
+            </span>
           </div>
           {!sideBar && <SiDeutschebank className="hamburger" size={22} onClick={() => setSideBar(true)} />}
         </div>
@@ -57,15 +58,21 @@ function Navbar({ handleChange, data }) {
             <p className="d-flex justify-content-end">
               <ImCross className="hamburger" size={22} onClick={() => setSideBar(false)} />
             </p>
-            <Link className="my-3 navItems" to="project" smooth={true} duration={100} offset={-80}>
-              <span>Project</span>
-            </Link>
-            <Link className="my-3 navItems" to="tools" smooth={true} duration={100} offset={-35}>
-              <span>Tools</span>
-            </Link>
-            <Link className="my-3 navItems" to="contact" smooth={true} duration={100} offset={-90}>
-              <span>Contact</span>
-            </Link>
+            <span className="my-3 navItems">
+              <a href="https://dimasts.vercel.app/" target="_blank" className="sideItems">
+                Project
+              </a>
+            </span>
+            <span className="my-3 navItems">
+              <a href="https://dimasts.vercel.app/" target="_blank" className="sideItems">
+                Tools
+              </a>
+            </span>
+            <span className="my-3 navItems">
+              <a href="https://dimasts.vercel.app/" target="_blank" className="sideItems">
+                Contact
+              </a>
+            </span>
           </div>
         </div>
       ) : (
@@ -77,21 +84,13 @@ function Navbar({ handleChange, data }) {
             className=" darkMode p-2 text-center"
             onClick={() => {
               handleChange();
-              setDarkMode(!darkMode);
             }}
           >
-            {darkMode ? <BsMoonStars size={28} className="iconDarkmode" /> : <MdOutlineWbSunny size={30} className="iconDarkmode" />}
+            {theme === 'dark' ? <BsMoonStars size={28} className="iconDarkmode" /> : <MdOutlineWbSunny size={30} className="iconDarkmode" />}
           </span>
           {flowUp && (
             <span className="darkMode p-2">
-              <Tooltip id="my-tooltip" place="right" />
-              <TfiFaceSmile
-                size={30}
-                className=" smileFace"
-                data-tooltip-id="my-tooltip"
-                data-tooltip-content="
-            Hello everyone! Thank you for visiting my website!👋✨"
-              />
+              <TfiFaceSmile size={30} className=" smileFace" />
             </span>
           )}
           <span className="icon  mt-1">

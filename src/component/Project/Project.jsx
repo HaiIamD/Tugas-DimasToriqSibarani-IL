@@ -1,15 +1,6 @@
 import React, { useState } from 'react';
 import './Project.css';
 
-import { Pagination, A11y, Autoplay } from 'swiper/modules';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/autoplay';
-
 function Project({ data }) {
   const [moreProject, setMoreProject] = useState(3);
   const [showMore, setShowMore] = useState(false);
@@ -18,7 +9,7 @@ function Project({ data }) {
 
   return (
     <>
-      <div className="d-flex flex-wrap  my-4 " id="project">
+      <div className="d-flex flex-wrap  my-4 ">
         <div className="d-flex flex-wrap projectImageKecil col-12 col-md-6 pe-2">
           <div className="col-11 col-md-12  borderImage rounded-4">
             <img src="assets/1.png" alt="image" className="img-fluid col-12" />
@@ -33,20 +24,13 @@ function Project({ data }) {
       </div>
       {sliceData.map((data, i) => (
         <div className="d-flex flex-wrap align-items-center justify-content-center my-5 " key={i}>
-          <Swiper
-            className="col-11 col-lg-4"
-            modules={[Pagination, A11y, Autoplay]}
-            spaceBetween={50}
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 3000 }}
-            slidesPerView={1}
-          >
+          <div className="col-11 col-lg-4">
             {data.image.map((image, i) => (
-              <SwiperSlide key={i}>
+              <div key={i}>
                 <img src={image} alt="image" className="img-fluid" key={i} />
-              </SwiperSlide>
+              </div>
             ))}
-          </Swiper>
+          </div>
 
           <div className="d-flex flex-column col-11 col-lg-8 descProject">
             <span className="textBesar my-1">{data.title}</span>
