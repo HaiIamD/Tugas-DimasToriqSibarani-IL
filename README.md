@@ -71,6 +71,8 @@
 ###
 
 <p align="left">Hallo teman teman semua berikut merupakan tamplate portofolio yang sudah saya buat , Terima Kasih ✨</p>
+<p align="left">Beberapa Fitur sudah di hilangkan di sini di karenakan ada syarat dalam tugas yang ada , jika ingin melihat yang complate maka bisa mengunjungi link berikut :</p>
+<a href='https://github.com/HaiIamD/PortofolioDimas.git' target='_blank'>Click ini untuk mengarah ke Repository Aslinya</a>
 
 <img width="944" alt="Untitled (5)" src="https://github.com/HaiIamD/PortofolioDimas/assets/95232841/5c5fb477-1917-4f12-954f-9c7ffe437763">
 
